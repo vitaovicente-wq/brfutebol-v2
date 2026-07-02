@@ -8,11 +8,13 @@ import StandingsScreen from './pages/StandingsScreen';
 import CalendarScreen from './pages/CalendarScreen';
 import FinancesScreen from './pages/FinancesScreen';
 import CoachScreen from './pages/CoachScreen';
-import { LineupScreen, MarketScreen, StadiumScreen, MessagesScreen } from './pages/PlaceholderScreens';
+import LineupScreen from './pages/LineupScreen';
+import MarketScreen from './pages/MarketScreen';
+import MessagesScreen from './pages/MessagesScreen';
+import { StadiumScreen } from './pages/PlaceholderScreens';
 
 function AppRoutes() {
   const { temJogoSalvo } = useGame();
-
   if (!temJogoSalvo) {
     return (
       <Routes>
@@ -20,7 +22,6 @@ function AppRoutes() {
       </Routes>
     );
   }
-
   return (
     <Routes>
       <Route element={<GameLayout />}>
