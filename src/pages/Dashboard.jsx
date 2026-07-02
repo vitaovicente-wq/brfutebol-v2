@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGame } from '../store/GameContext';
 import { getClubeById } from '../data/clubsData';
@@ -7,8 +8,9 @@ import { calcularClassificacao } from '../engine/matchEngine';
 import ClubCrest from '../components/ClubCrest';
 
 export default function Dashboard() {
-  const { estado } = useGame();
+  const { estado, encerrarCarreira } = useGame();
   const navigate = useNavigate();
+  const [confirmando, setConfirmando] = useState(false);
 
   if (!estado) return null;
 
@@ -33,6 +35,11 @@ export default function Dashboard() {
 
   const jogadores = [...(clube?.elenco ?? [])].sort((a, b) => b.ovr - a.ovr);
 
+  function handleNovoJogo() {
+    if (!confirmando) { setConfirmando(true); return; }
+    encerrarCarreira();
+  }
+
   return (
     <div style={styles.wrap}>
       {/* Header */}
@@ -52,6 +59,17 @@ export default function Dashboard() {
             <div style={styles.saldoLabel}>Classificação</div>
             <div style={styles.saldoVal}>{posicao}º lugar</div>
           </div>
+          <button
+            onClick={handleNovoJogo}
+            style={confirmando ? styles.novoJogoBtnConfirm : styles.novoJogoBtn}
+          >
+            {confirmando ? '⚠️ Confirmar? Clique novamente' : '↩ Novo jogo'}
+          </button>
+          {confirmando && (
+            <button onClick={() => setConfirmando(false)} style={styles.cancelarBtn}>
+              Cancelar
+            </button>
+          )}
         </div>
       </div>
 
@@ -172,10 +190,13 @@ const styles = {
   header: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 24 },
   kicker: { fontSize: 11, color: '#5DCAA5', letterSpacing: 1, marginBottom: 4 },
   title: { color: '#fff', fontSize: 24, fontWeight: 500, margin: 0 },
-  headerRight: { display: 'flex', gap: 12 },
+  headerRight: { display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', justifyContent: 'flex-end' },
   saldoBox: { background: 'rgba(255,255,255,0.05)', border: '0.5px solid rgba(255,255,255,0.1)', borderRadius: 10, padding: '10px 16px', textAlign: 'right' },
   saldoLabel: { fontSize: 11, color: 'rgba(255,255,255,0.5)', marginBottom: 2 },
   saldoVal: { fontSize: 16, fontWeight: 600, color: '#fff' },
+  novoJogoBtn: { background: 'transparent', border: '0.5px solid rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.5)', padding: '8px 14px', borderRadius: 8, fontSize: 12, cursor: 'pointer' },
+  novoJogoBtnConfirm: { background: 'rgba(163,45,45,0.2)', border: '0.5px solid #A32D2D', color: '#e07b39', padding: '8px 14px', borderRadius: 8, fontSize: 12, cursor: 'pointer', fontWeight: 500 },
+  cancelarBtn: { background: 'transparent', border: '0.5px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.4)', padding: '8px 12px', borderRadius: 8, fontSize: 12, cursor: 'pointer' },
   grid: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 },
   card: { background: 'rgba(255,255,255,0.03)', border: '0.5px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: 20 },
   cardTitle: { fontSize: 11, color: '#5DCAA5', textTransform: 'uppercase', letterSpacing: 1, fontWeight: 500, marginBottom: 16 },
