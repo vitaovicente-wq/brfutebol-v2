@@ -33,17 +33,34 @@ function gerarBrasao(nome, indice) {
   return brasao(cor1, cor2, iniciais);
 }
 
+const NOMES_GOL = ['Weverton','Cássio','Santos','Tadeu','João Paulo','Muriel','Rafael','Lucas Perri','Everson','Bento'];
+const NOMES_DEF = ['Gustavo Gómez','Luan','Nino','David Braz','Léo Ortiz','Lucas Verissimo','Bremer','Rodrigo Caio','Ruan','Manoel','Fagner','Marcos Rocha','Mayke','Rafael Ramos','Piquerez','Guilherme Arana','Sasha','Reinaldo'];
+const NOMES_MEI = ['Raphael Veiga','Gabriel Menino','Zé Rafael','Danilo','Patrick de Paula','Gustavo Scarpa','Everton Ribeiro','Gerson','Thiago Maia','Bruno Henrique','De Arrascaeta','Victor Hugo','Claudinho','Cuéllar','Rinaldo','Lucas Lima','Ronaldo','Edenilson'];
+const NOMES_ATA = ['Endrick','Rony','Dudu','Flaco López','Gabigol','Pedro','Hulk','Ademir','Cano','Luciano','Calleri','Vitor Roque','Deyverson','Wellington Nem','Arthur Cabral','Yuri Alberto','Júnior Santos','Tiquinho Soares'];
+
+function nomePorPosicao(pos, usado) {
+  let pool;
+  if (pos === 'GOL') pool = NOMES_GOL;
+  else if (['ZAG','LD','LE'].includes(pos)) pool = NOMES_DEF;
+  else if (['VOL','MEI'].includes(pos)) pool = NOMES_MEI;
+  else pool = NOMES_ATA;
+  const disponiveis = pool.filter(n => !usado.has(n));
+  if (disponiveis.length === 0) return `${pos} ${Math.floor(Math.random()*99)+1}`;
+  const nome = disponiveis[Math.floor(Math.random() * disponiveis.length)];
+  usado.add(nome);
+  return nome;
+}
+
 function criarElencoBase(clubeNome, forcaBase) {
-  // Elenco placeholder: 18 jogadores com atributos variando perto da força base do clube.
-  // Será substituído por dados reais conforme cada liga é detalhada, ou pelo Editor de Universo.
   const posicoes = ['GOL', 'ZAG', 'ZAG', 'LD', 'LE', 'VOL', 'VOL', 'MEI', 'MEI', 'MEI', 'ATA', 'ATA', 'ATA',
     'GOL', 'ZAG', 'LD', 'MEI', 'ATA'];
+  const usado = new Set();
   return posicoes.map((pos, i) => {
     const variacao = Math.floor(Math.random() * 11) - 5;
     const ovr = Math.max(45, Math.min(94, forcaBase + variacao));
     return {
       id: `${clubeNome.toLowerCase().replace(/\s+/g, '-')}-j${i + 1}`,
-      nome: `Jogador ${i + 1}`,
+      nome: nomePorPosicao(pos, usado),
       posicao: pos,
       idade: 18 + Math.floor(Math.random() * 18),
       ovr,
