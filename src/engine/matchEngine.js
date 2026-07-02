@@ -65,10 +65,10 @@ export function simularPartida(clubeCasa, clubeFora, opcoes = {}) {
     }
     // Cartão amarelo (~1 por jogo por time)
     if (Math.random() < 1 / 90) {
-      eventos.push({ minuto: min, tipo: 'cartao_amarelo', timeId: clubeCasa.id });
+      eventos.push({ minuto: min, tipo: 'cartao_amarelo', timeId: clubeCasa.id, timeNome: clubeCasa.nome });
     }
     if (Math.random() < 1 / 90) {
-      eventos.push({ minuto: min, tipo: 'cartao_amarelo', timeId: clubeFora.id });
+      eventos.push({ minuto: min, tipo: 'cartao_amarelo', timeId: clubeFora.id, timeNome: clubeFora.nome });
     }
   }
 
