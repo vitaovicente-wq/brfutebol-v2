@@ -67,7 +67,7 @@ export default function CareerSelectScreen({ onCarreiraIniciada }) {
     <div style={{ ...styles.wrap, background: bg }}>
       {/* Barra superior */}
       <div style={styles.topBar}>
-        <div style={styles.logoWrap}><img src="/brfutebol-v2/logo.svg" alt="BRFutebol" style={styles.logoImg} /></div>
+        <div style={styles.logoWrap}><img src="/brfutebol-v2/logo.svg" alt="BRFutebol" style={styles.logoImg} /><span style={styles.logoText}>BRFUTEBOL</span></div>
         <div style={styles.topRight}>
           {/* Indicador de etapas */}
           <div style={styles.steps}>
@@ -245,8 +245,9 @@ function ConfirmStat({ label, value, accent }) {
 const styles = {
   wrap: { minHeight: '100vh', display: 'flex', flexDirection: 'column', fontFamily: 'Arial, sans-serif', transition: 'background 0.4s ease' },
   topBar: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 32px', borderBottom: '0.5px solid rgba(255,255,255,0.08)' },
-  logoWrap: { display: 'flex', alignItems: 'center' },
-  logoImg: { height: 40, width: 'auto' },
+  logoWrap: { display: 'flex', alignItems: 'center', gap: 10 },
+  logoImg: { height: 52, width: 'auto' },
+  logoText: { color: '#5DCAA5', fontSize: 15, fontWeight: 700, letterSpacing: 3 },
   topRight: { display: 'flex', alignItems: 'center', gap: 16 },
   steps: { display: 'flex', alignItems: 'center', gap: 6 },
   stepDot: { height: 8, borderRadius: 4, transition: 'all 0.3s ease' },
