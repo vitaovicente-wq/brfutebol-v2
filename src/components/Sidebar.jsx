@@ -24,7 +24,7 @@ export default function Sidebar() {
     <nav style={styles.sidebar}>
       <div style={styles.brand}>
         {clube && <ClubCrest brasao={clube.brasao} size={32} />}
-        <img src="/brfutebol-v2/logo.svg" alt="BRFutebol" style={{ height: 28, width: 'auto' }} />
+        <img src="/brfutebol-v2/logo.svg" alt="BRFutebol" style={{ height: 36, width: "auto" }} />
       </div>
 
       <div style={styles.navList}>
