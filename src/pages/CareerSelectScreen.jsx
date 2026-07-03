@@ -67,7 +67,7 @@ export default function CareerSelectScreen({ onCarreiraIniciada }) {
     <div style={{ ...styles.wrap, background: bg }}>
       {/* Barra superior */}
       <div style={styles.topBar}>
-        <div style={{ ...styles.logo, color: accent }}>BRFUTEBOL</div>
+        <div style={styles.logoWrap}><img src="/brfutebol-v2/logo.svg" alt="BRFutebol" style={styles.logoImg} /></div>
         <div style={styles.topRight}>
           {/* Indicador de etapas */}
           <div style={styles.steps}>
@@ -115,7 +115,7 @@ export default function CareerSelectScreen({ onCarreiraIniciada }) {
                 <button key={pais.id}
                   onClick={() => { setPaisId(pais.id); setLigaId(null); setClubeId(null); avancar(2); }}
                   style={{ ...styles.paisCard, borderColor: pais.id === paisId ? accent : 'rgba(255,255,255,0.1)' }}>
-                  <span style={styles.paisFlag}>{pais.bandeira}</span>
+                  <img src={`https://flagcdn.com/w40/${pais.flagCode}.png`} alt={pais.nome} style={styles.paisFlag} onError={e => { e.target.style.display='none'; }} />
                   <span style={styles.paisNome}>{pais.nome}</span>
                   <span style={styles.paisLigas}>{pais.ligas.length} {pais.ligas.length === 1 ? 'liga' : 'ligas'}</span>
                 </button>
@@ -245,7 +245,8 @@ function ConfirmStat({ label, value, accent }) {
 const styles = {
   wrap: { minHeight: '100vh', display: 'flex', flexDirection: 'column', fontFamily: 'Arial, sans-serif', transition: 'background 0.4s ease' },
   topBar: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 32px', borderBottom: '0.5px solid rgba(255,255,255,0.08)' },
-  logo: { fontSize: 13, fontWeight: 700, letterSpacing: 3 },
+  logoWrap: { display: 'flex', alignItems: 'center' },
+  logoImg: { height: 40, width: 'auto' },
   topRight: { display: 'flex', alignItems: 'center', gap: 16 },
   steps: { display: 'flex', alignItems: 'center', gap: 6 },
   stepDot: { height: 8, borderRadius: 4, transition: 'all 0.3s ease' },
@@ -263,7 +264,7 @@ const styles = {
 
   paisGrid: { display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 },
   paisCard: { background: 'rgba(255,255,255,0.04)', border: '0.5px solid', borderRadius: 10, padding: '14px 16px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, transition: 'all .15s' },
-  paisFlag: { fontSize: 28 },
+  paisFlag: { width: 40, height: 'auto', borderRadius: 3, boxShadow: '0 1px 4px rgba(0,0,0,0.4)' },
   paisNome: { color: '#fff', fontSize: 13, fontWeight: 500, textAlign: 'center' },
   paisLigas: { color: 'rgba(255,255,255,0.35)', fontSize: 11 },
 
