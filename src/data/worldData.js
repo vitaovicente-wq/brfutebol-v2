@@ -26,27 +26,24 @@ export const CONTINENTES = [
 ];
 
 export const PAISES = {
-  brasil: { id: 'brasil', nome: 'Brasil', bandeira: '🇧🇷', continente: 'america-sul', ligas: ['br-serie-a', 'br-serie-b', 'br-serie-c', 'br-serie-d'] },
-  argentina: { id: 'argentina', nome: 'Argentina', bandeira: '🇦🇷', continente: 'america-sul', ligas: ['arg-primera', 'arg-nacional'] },
-  uruguai: { id: 'uruguai', nome: 'Uruguai', bandeira: '🇺🇾', continente: 'america-sul', ligas: ['uru-primera'] },
-  paraguai: { id: 'paraguai', nome: 'Paraguai', bandeira: '🇵🇾', continente: 'america-sul', ligas: ['par-primera'] },
-  chile: { id: 'chile', nome: 'Chile', bandeira: '🇨🇱', continente: 'america-sul', ligas: ['chi-primera'] },
-  colombia: { id: 'colombia', nome: 'Colômbia', bandeira: '🇨🇴', continente: 'america-sul', ligas: ['col-primera-a'] },
-
-  mexico: { id: 'mexico', nome: 'México', bandeira: '🇲🇽', continente: 'america-norte', ligas: ['mex-liga-mx'] },
-  eua: { id: 'eua', nome: 'Estados Unidos', bandeira: '🇺🇸', continente: 'america-norte', ligas: ['eua-mls'] },
-  canada: { id: 'canada', nome: 'Canadá', bandeira: '🇨🇦', continente: 'america-norte', ligas: ['can-premier'] },
-
-  portugal: { id: 'portugal', nome: 'Portugal', bandeira: '🇵🇹', continente: 'europa', ligas: ['por-primeira', 'por-liga2'] },
-  espanha: { id: 'espanha', nome: 'Espanha', bandeira: '🇪🇸', continente: 'europa', ligas: ['esp-laliga', 'esp-laliga2'] },
-  franca: { id: 'franca', nome: 'França', bandeira: '🇫🇷', continente: 'europa', ligas: ['fra-ligue1'] },
-  inglaterra: { id: 'inglaterra', nome: 'Inglaterra', bandeira: '🏴', continente: 'europa', ligas: ['ing-premier', 'ing-championship'] },
-  alemanha: { id: 'alemanha', nome: 'Alemanha', bandeira: '🇩🇪', continente: 'europa', ligas: ['ale-bundesliga', 'ale-bundesliga2'] },
-  italia: { id: 'italia', nome: 'Itália', bandeira: '🇮🇹', continente: 'europa', ligas: ['ita-seriea', 'ita-serieb'] },
-  'paises-baixos': { id: 'paises-baixos', nome: 'Países Baixos', bandeira: '🇳🇱', continente: 'europa', ligas: ['hol-eredivisie'] },
-
-  japao: { id: 'japao', nome: 'Japão', bandeira: '🇯🇵', continente: 'asia', ligas: ['jap-j1'] },
-  'arabia-saudita': { id: 'arabia-saudita', nome: 'Arábia Saudita', bandeira: '🇸🇦', continente: 'asia', ligas: ['ksa-pro-league'] },
+  brasil:          { id: 'brasil',          nome: 'Brasil',          bandeira: '🇧🇷', flagCode: 'br', continente: 'america-sul',   ligas: ['br-serie-a', 'br-serie-b', 'br-serie-c', 'br-serie-d'] },
+  argentina:       { id: 'argentina',       nome: 'Argentina',       bandeira: '🇦🇷', flagCode: 'ar', continente: 'america-sul',   ligas: ['arg-primera', 'arg-nacional'] },
+  uruguai:         { id: 'uruguai',         nome: 'Uruguai',         bandeira: '🇺🇾', flagCode: 'uy', continente: 'america-sul',   ligas: ['uru-primera'] },
+  paraguai:        { id: 'paraguai',        nome: 'Paraguai',        bandeira: '🇵🇾', flagCode: 'py', continente: 'america-sul',   ligas: ['par-primera'] },
+  chile:           { id: 'chile',           nome: 'Chile',           bandeira: '🇨🇱', flagCode: 'cl', continente: 'america-sul',   ligas: ['chi-primera'] },
+  colombia:        { id: 'colombia',        nome: 'Colômbia',        bandeira: '🇨🇴', flagCode: 'co', continente: 'america-sul',   ligas: ['col-primera-a'] },
+  mexico:          { id: 'mexico',          nome: 'México',          bandeira: '🇲🇽', flagCode: 'mx', continente: 'america-norte', ligas: ['mex-liga-mx'] },
+  eua:             { id: 'eua',             nome: 'Estados Unidos',  bandeira: '🇺🇸', flagCode: 'us', continente: 'america-norte', ligas: ['eua-mls'] },
+  canada:          { id: 'canada',          nome: 'Canadá',          bandeira: '🇨🇦', flagCode: 'ca', continente: 'america-norte', ligas: ['can-premier'] },
+  portugal:        { id: 'portugal',        nome: 'Portugal',        bandeira: '🇵🇹', flagCode: 'pt', continente: 'europa',        ligas: ['por-primeira', 'por-liga2'] },
+  espanha:         { id: 'espanha',         nome: 'Espanha',         bandeira: '🇪🇸', flagCode: 'es', continente: 'europa',        ligas: ['esp-laliga', 'esp-laliga2'] },
+  franca:          { id: 'franca',          nome: 'França',          bandeira: '🇫🇷', flagCode: 'fr', continente: 'europa',        ligas: ['fra-ligue1'] },
+  inglaterra:      { id: 'inglaterra',      nome: 'Inglaterra',      bandeira: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', flagCode: 'gb-eng', continente: 'europa',  ligas: ['ing-premier', 'ing-championship'] },
+  alemanha:        { id: 'alemanha',        nome: 'Alemanha',        bandeira: '🇩🇪', flagCode: 'de', continente: 'europa',        ligas: ['ale-bundesliga', 'ale-bundesliga2'] },
+  italia:          { id: 'italia',          nome: 'Itália',          bandeira: '🇮🇹', flagCode: 'it', continente: 'europa',        ligas: ['ita-seriea', 'ita-serieb'] },
+  'paises-baixos': { id: 'paises-baixos',  nome: 'Países Baixos',   bandeira: '🇳🇱', flagCode: 'nl', continente: 'europa',        ligas: ['hol-eredivisie'] },
+  japao:           { id: 'japao',           nome: 'Japão',           bandeira: '🇯🇵', flagCode: 'jp', continente: 'asia',          ligas: ['jap-j1'] },
+  'arabia-saudita':{ id: 'arabia-saudita', nome: 'Arábia Saudita',  bandeira: '🇸🇦', flagCode: 'sa', continente: 'asia',          ligas: ['ksa-pro-league'] },
 };
 
 // divisaoNivel: 1 = primeira divisão, 2 = segunda, etc. Usado para regras de acesso a competições continentais.
